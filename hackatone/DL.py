@@ -1,5 +1,9 @@
 import math
 import numpy as np
+import matplotlib.pyplot as plt
+from hackatone.question_13.q131 import q131_root 
+from hackatone.question33.lagrange_interpolation import y_interpolate 
+from hackatone.question12.simpsonRule import integral
 
 
 def first(L):
@@ -30,9 +34,9 @@ def fifth(L):
 
 
 if __name__ == '__main__':
-    L = 1.385360544*900
-    print(f"First model: D = {first(L)}")
-    print(f"Second model: D = {second(L)}")
-    print(f"Third model: D = {third(L)}")
-    print(f"Fourth model: D = {fourth(L)}")
-    print(f"Fifth model: D = {fifth(L)}")
+    # Calculate a single L value
+
+    L13 = round(q131_root * 900)
+    L33 = round(y_interpolate * 750)
+    L12 = round(integral * 650)
+
