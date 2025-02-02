@@ -26,11 +26,13 @@ def compute_term(x_data, y_data, x, i):
             term *= (x - x_data[j]) / (x_data[i] - x_data[j])
     return term
 
-if __name__ == '__main__':
+def main():
     x_data = [1.2, 1.3, 1.4, 1.5, 1.6]
     y_data = [1.5095, 1.6984, 1.9043, 2.1293, 2.3756]
     x_interpolate = 1.47
 
     y_interpolate = lagrange_interpolation(x_data, y_data, x_interpolate)
     print(f"\nInterpolated value at x = {x_interpolate} is y = {y_interpolate}")
-    
+
+    return y_interpolate
+

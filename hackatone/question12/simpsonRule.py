@@ -59,8 +59,7 @@ def finalize_integral(integral, h):
     """
     return integral * (h / 3)
 
-
-if __name__ == '__main__':
+def main():
     f = lambda x: (x * math.exp(-x) + math.log(x**2)) * (2*x**3 + 2*x**2 - 3*x - 5)
     # n = 300000
     a = 0.5
@@ -75,3 +74,4 @@ if __name__ == '__main__':
     print(f"Division into n = {n} sections")
     integral = simpsons_rule(f, a, b, n)
     print(f"Numerical Integration of the definite integral in range [{a}, {b}] is {integral}")
+    return integral

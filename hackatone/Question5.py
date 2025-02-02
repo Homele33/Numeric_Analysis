@@ -75,7 +75,7 @@ def largest_root_secant(f, x0, x1, tol=1e-6, max_iter=100):
 
 
 
-if __name__ == '__main__':
+def main():
     f = lambda x: np.cos(2*x**3+5*x**2-6)/(2*np.exp(-2*x))
 
     x0 = 1
@@ -85,3 +85,4 @@ if __name__ == '__main__':
     print(f"The equation in secant method has the largest approximate root in {secant_root}")
     bisection_root = largest_root_bisection(f, x0, x1)
     print(f"The equation in secant method has the largest approximate root in {bisection_root}")
+    return secant_root

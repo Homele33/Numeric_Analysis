@@ -79,17 +79,16 @@ def bisection_method(f, a, b, tol=1e-6):
             return c
 
     return c  # Return the last approximation of the root
-
-
-if __name__ == '__main__':
+def main():
     # f = lambda x: x ** 4 + x ** 3 - 3 * x ** 2
-    f = lambda x: (2 * x * math.exp(-x) + math.log(abs(2 * x**2) + 1e-10)) * (2 * x**3 + 2 * x**2 - 3 * x - 5)
+    f = lambda x: (2 * x * math.exp(-x) + math.log(abs(2 * x ** 2) + 1e-10)) * (2 * x ** 3 + 2 * x ** 2 - 3 * x - 5)
     # f_prime = lambda x: ((-math.sin(x ** 2 + 5 * x + 6) * (2 * x + 5) * 2 * math.exp(-x)) +
     #                             (math.cos(x ** 2 + 5 * x + 6) * (-2 * math.exp(-x)))
     #                     ) / (4 * math.exp(-2 * x))
     start = 0
     end = 1.5
     step = 0.1
-    q131_root=find_sign_changes_and_solve(f, start, end, step)
+    q131_root = find_sign_changes_and_solve(f, start, end, step)
+    return q131_root
 
 

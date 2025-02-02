@@ -126,7 +126,7 @@ def init_sol_vector(mat):
         vector.append(0)
     return vector
 
-if __name__ == '__main__':
+def main():
     lower27, upper27 = lu_decomposition(mat_27)
     lower30, upper30 = lu_decomposition(mat_30)
     solution27 = solve_lu_decomposition(lower27, upper27, vector_27)
@@ -135,6 +135,4 @@ if __name__ == '__main__':
     q30_lu_decomposition = solution30[0]
     print(q27_lu_decomposition)
     print(q30_lu_decomposition)
-
-
-
+    return q30_lu_decomposition, q27_lu_decomposition
