@@ -1,4 +1,3 @@
-# scant method
 import numpy as np
 
 def bisection_method(f, a, b, tol=1e-6, max_iter=100):
@@ -28,12 +27,11 @@ def largest_root_bisection(f, a, b, tol=1e-6, max_iter=100):
         a = 1 + i * dx
         b = a + dx
 
-        if f(a) * f(b) < 0:  # Check if there might be a root
+        if f(a) * f(b) < 0:
             root = bisection_method(f, a, b)
             if root is not None:
                 roots.append(root)
 
-    # Remove duplicates and find largest
     unique_roots = np.unique(np.round(roots, 6))
     largest_root = max(unique_roots)
 
@@ -48,10 +46,9 @@ def secant_method(f, x0, x1, tol=1e-6, max_iter=100):
         if abs(fx1) < tol:
             return x1
 
-        # Secant method formula
+
         x_next = x1 - fx1 * (x1 - x0) / (fx1 - fx0)
 
-        # Check if the next point is within our interval of interest
         if not (1 <= x_next <= 1.5):
             return None
 
@@ -64,17 +61,15 @@ def secant_method(f, x0, x1, tol=1e-6, max_iter=100):
 
 def largest_root_secant(f, x0, x1, tol=1e-6, max_iter=100):
     roots = []
-    x0_points = np.linspace(1, 1.4, 10)  # Starting points
+    x0_points = np.linspace(1, 1.4, 10)
 
     for x0 in x0_points:
         root = secant_method(f, x0, x0 + 0.1)
         if root is not None:
             roots.append(root)
 
-    # Remove duplicates and sort
     unique_roots = np.unique(np.round(roots, 6))
 
-    # Verify the largest root
     largest_root = max(unique_roots)
     return largest_root
 
