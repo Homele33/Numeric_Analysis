@@ -1,10 +1,9 @@
-import math
 import numpy as np
 import matplotlib.pyplot as plt
 from question_13.q131 import main as q13
 from question33.lagrange_interpolation import main as q33
 from question12.simpsonRule import main as q12
-from hackatone.Question5 import main as q5
+from Question5 import main as q5
 from questions30_27.lu_decomposition import main as q27_30
 
 
@@ -35,28 +34,6 @@ def fourth(L):
 def fifth(L):
     return 0.069 + 0.00156 * L + 0.00000047 * pow(L, 2)
 
-def plot_points(points):
-    """
-    Plot the points on a graph.
-
-    Parameters:
-    points (list of tuples or lists): Array of points where each point is (x, y).
-
-    """
-    # Unzip the list of points into x and y coordinates
-    x, y = zip(*points)
-
-    # Create a scatter plot
-    plt.scatter(x, y, color='blue', marker='o')
-
-    # Add labels and title
-    plt.xlabel('X-axis')
-    plt.ylabel('Y-axis')
-    plt.title('Scatter Plot of Points')
-
-    # Show the plot
-    plt.show()
-
 
 if __name__ == '__main__':
     # Calculate a single L value
@@ -69,14 +46,28 @@ if __name__ == '__main__':
     L27 = round(L27 * 400)
     L30 = round(L30* 600)
 
+    list_L = [L12, L30, L13, L33, L27, L5]
+    list_D1 = [first(L12), first(L30), first(L13), first(L33), first(L27), first(L5)]
+    list_D2 = [second(L12), second(L30), second(L13), second(L33), second(L27), second(L5)]
+    list_D3 = [third(L12), third(L30), third(L13), third(L33), third(L27), third(L5)]
+    list_D4 = [fourth(L12), fourth(L30), fourth(L13), fourth(L33), fourth(L27), fourth(L5)]
+    list_D5 = [fifth(L12), fifth(L30), fifth(L13), fifth(L33), fifth(L27), fifth(L5)]
 
-    list_L = [L13, L33, L12, L5, L27, L30]
-    list_D1 = [first(L13), first(L33), first(L12), first(L5), first(L27), first(L30)]
-    list_D2 = [second(L13), second(L33), second(L12), second(L5), second(L27), second(L30)]
-    list_D3 = [third(L13), third(L33), third(L12), third(L5), third(L27), third(L30)]
-    list_D4 = [fourth(L13), fourth(L33), fourth(L12), fourth(L5), fourth(L27), fourth(L30)]
-    list_D5 = [fifth(L13), fifth(L33), fifth(L12), fifth(L5), fifth(L27), fifth(L30)]
-    total = list_D1 + list_D2 + list_D3 + list_D4 + list_D5
+    # Create the plot
+    plt.figure(figsize=(10, 6))
+    plt.plot(list_L, list_D1, marker='o', linestyle='-', label='D1')
+    plt.plot(list_L, list_D2, marker='s', linestyle='--', label='D2')
+    plt.plot(list_L, list_D3, marker='^', linestyle='-.', label='D3')
+    plt.plot(list_L, list_D4, marker='d', linestyle=':', label='D4')
+    plt.plot(list_L, list_D5, marker='x', linestyle='-', label='D5')
 
-    plot_points(total)
+    # Labels and title
+    plt.xlabel("L values")
+    plt.ylabel("D values")
+    plt.title("Graph of D functions against L")
+    plt.legend()
+    plt.grid(True)
+
+    # Show the plot
+    plt.show()
 
