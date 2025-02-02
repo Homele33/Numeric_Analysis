@@ -1,0 +1,26 @@
+# Import functions from different files
+LOAD q13 from question13
+LOAD q33 from question33
+LOAD q12 from question12
+LOAD q5 from questions5
+LOAD q27 from questions27
+LOAD q30 from question30
+
+L13 = ROUND(q13() * 900)
+L33 = ROUND(q33() * 750)
+L12 = ROUND(q12() * 650)
+L5 = ROUND(q5() * 2000)
+L27 = ROUND(q27 * 400)
+L30 = ROUND(q30 * 600)
+
+# Store all L values in a list
+LIST list_L = [L12, L30, L13, L33, L27, L5]
+
+# Calculate different D values using each function
+LIST list_D1 = D values for L1
+LIST list_D2 = D values for L2
+LIST list_D3 = D values for L3
+LIST list_D4 = D values for L4
+LIST list_D5 = D values for L5
+
+show graph
